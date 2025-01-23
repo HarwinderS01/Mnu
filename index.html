@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Future IAS Officer! 🎉</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) infinite alternate;
+        }
+        @keyframes moveHearts {
+            0% { transform: translateY(0px); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .heart {
+            position: absolute;
+            color: pink;
+            font-size: 1.2rem;
+            animation: moveHearts 5s linear infinite;
+        }
+        .background {
+            background: url('your-image-url.jpg') no-repeat center center/cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        .button {
+            background-color: #FFD700;
+            color: black;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #FFC107;
+        }
+    </style>
+</head>
+<body class="relative flex flex-col items-center justify-center min-h-screen text-center text-white px-4 sm:px-6 md:px-8">
+    <div class="background"></div>
+    <div class="overlay"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const heartContainer = document.body;
+            setInterval(() => {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                heart.style.fontSize = Math.random() * 1.5 + 0.8 + "rem";
+                heartContainer.appendChild(heart);
+                setTimeout(() => { heart.remove(); }, 5000);
+            }, 500);
+        });
+        
+        function playMusic() {
+            let audio = document.getElementById("birthdayMusic");
+            audio.play();
+        }
+    </script>
+    
+    <audio id="birthdayMusic" src="your-music-file.mp3"></audio>
+    
+    <div class="content p-6">
+        <h1 class="text-4xl sm:text-5xl font-bold">🎓 Happy Birthday, Future IAS Officer! 🎂</h1>
+        <p class="text-lg sm:text-xl mt-4 typing-effect">May you conquer every exam like a pro! 🚀</p>
+        
+        <button onclick="playMusic()" class="mt-6 inline-block button shadow-lg">
+            Click here 🎼
+        </button>
+        
+        <p class="mt-4 text-md sm:text-lg">From your loving brother, a Software Developer 👨‍💻💙</p>
+    </div>
+</body>
+</html>
